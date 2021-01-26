@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { pageVerify } from "../helpers/pageVerify";
 import { verifyBrowser } from "../helpers/verifyBrowser";
 
@@ -26,6 +26,12 @@ const Blog = ({ theme, protectedPage }) => {
   if (isBrowser) {
     console.log("width", window.innerWidth);
   }
+
+  useEffect(() => {
+    // useEffect works ONLY ON CLIENT SIDE
+    // So browser verifying is no needed
+    setWindowWidth(window.innerWidth);
+  }, []);
 
   return (
     <>
